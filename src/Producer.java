@@ -32,16 +32,19 @@ public class Producer extends Thread{
 
     public String selectRandomVegetable() {
         int randomVegetablePosition = (int)(Math.random() * vegetables.length);
-        return vegetables[randomVegetablePosition].toString();
-
+        return vegetables[randomVegetablePosition];
     }
 
     @Override
     public void run() {
         try {
             for (int i = 0; i < producedUnits; i++) {
-                buffer.put(selectRandomVegetable());
-                System.out.println("Produced => " + vegetables[i]);
+                //al metodo put le paso un vegetal random
+                String vegetableProduced = selectRandomVegetable();
+                buffer.put(vegetableProduced);
+                System.out.println("Produced => " + vegetableProduced );
+
+                //fuerzo una espera
                 sleep((int) (Math.random() * this.madurationTime));
             }
 

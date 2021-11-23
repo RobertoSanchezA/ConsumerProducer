@@ -16,7 +16,7 @@ public class Consumer extends Thread{
         try{
             for (int i = 0; i < expectedUnits; i++) {
                 vegetable = buffer.get();
-                System.out.println("Consumed: " + String.valueOf(vegetable));
+                System.out.println("Consumed: " + vegetable);
                 sleep((int) (Math.random() * maxWaitTime));
             }
         }catch (InterruptedException e) {
